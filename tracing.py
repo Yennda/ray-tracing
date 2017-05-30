@@ -77,10 +77,11 @@ class Source:
 
 
 class Crystal:
-    def __init__(self, d, D, r, loc):
+    def __init__(self, d, D, r, loc, rc: int):
         self.d = d
         self.r = r
         self.D = D
+        self.rc = rc
         self.centre = la.minus(loc, [0, 0, (r ** 2 - (D / 2) ** 2) ** 0.5])
         self.loc = loc
         self.points = list()
@@ -97,7 +98,7 @@ class SetUp:
         self.source = source
         self.crystal = crystal
         self.detector = detector
-        self.curveSi = Curves('reflectivity.csv')
+        self.curveSi = Curves()
 
         for s in self.source:
             s.direction = la.normalize(la.minus(crystal.loc, s.loc))
@@ -142,7 +143,7 @@ class SetUp:
         return False
 
     def reflection_point(self, loc, n, ray: list):
-        out_intensity = self.curveSi.curve(m.pi / 2 - m.acos(la.cos(ray, la.i(n))))
+        out_intensity = self.curveSi.curve(self.crystal.rc, m.pi / 2 - m.acos(la.cos(ray, la.i(n))))
 
         if out_intensity != 0:
             self.crystal.points.append(loc)
@@ -176,10 +177,12 @@ class SetUp:
         ]
 
         angles = [m.pi / 2 - m.acos(a) for a in angles]
-
-        if angles[0] < self.curveSi.bragg < angles[1] or angles[0] > self.curveSi.bragg > angles[1]:
+        # print([tl.deg_from_rad(a) for a in angles])
+        if angles[0] < self.curveSi.bragg[self.crystal.rc] < angles[1] or angles[0] > self.curveSi.bragg[
+            self.crystal.rc] > angles[1]:
             return True
-        if angles[2] < self.curveSi.bragg < angles[3] or angles[2] > self.curveSi.bragg > angles[3]:
+        if angles[2] < self.curveSi.bragg[self.crystal.rc] < angles[3] or angles[2] > self.curveSi.bragg[
+            self.crystal.rc] > angles[3]:
             return True
         return False
 

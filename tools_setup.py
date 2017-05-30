@@ -102,8 +102,8 @@ class SetupTools:
 
     @staticmethod
     def adjustment(c: Crystal, z_dist, oq=0):
-        curveSi = Curves('reflectivity.csv')
-        bragg = curveSi.bragg
+        curveSi = Curves()
+        bragg = curveSi.bragg[c.rc]
 
         loc_cr = [z_dist * m.cos(bragg), 0, m.sin(bragg) * z_dist]
         q = tl.imaging_equation(f=c.r / 2, a=la.norm(loc_cr))
