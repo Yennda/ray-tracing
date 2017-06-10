@@ -20,7 +20,7 @@ c = Crystal(d=0.384031, D=2.4, r=38, loc=[5.627693772801094, 0, 29.4674237557268
 # SOURCE
 # s = st.generate_eliptical_source([0.02, 0.02], 70)
 # s = [Source(loc=[0, 0, 0], wavelength=0.377207, intensity=1000, number=10000)]
-s = [Source(loc=[0, 0, 0], wavelength=0.377207, intensity=1000, number=100000)]
+s = [Source(loc=[0, 0, 0], wavelength=0.377207, intensity=1000, number=10000)]
 
 
 # DETECTORS
@@ -42,5 +42,5 @@ setup.work()
 
 st.display_crystal(c)
 
-# adjustment(c, z_dist=30, oq=51.92)
+st.adjustment(c, z_dist=30, oq=51.92)
 print('Final elapsed time: {}s'.format(int(time.time() - t)))

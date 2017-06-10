@@ -55501,3 +55501,173 @@ Photon fraction on detector: 1.45486948885979e-06
 Photons on crystal 0
 Photons reflected 0
         
+###################################
+500.txt
+---------------------------------
+c = Crystal(d=0.384031, D=2.4, r=38, loc=[5.627693772801094, 0, 29.46742375572686])
+d = Detector(dim=[1, 1], loc=[15.367355795595522, 0, -21.530864290851103], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=0.377207, intensity=1000, number=10000)
+        
+        
+---------------------------------
+Detector intensity: 0.008465035986250712
+Photon fraction on detector: 8.465035986250712e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+501.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.344294488940394, 0.0, -21.53076717546531], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=100000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014515329102450666
+Photon fraction on detector: 1.4515329102450665e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+502.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.344294488940394, 0.0, -21.53076717546531], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014552230272347672
+Photon fraction on detector: 1.4552230272347673e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+503.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.344294488940394, 0.0, -21.53076717546531], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=5000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014572655718643216
+Photon fraction on detector: 1.4572655718643217e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+504.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.344294488940394, 0.0, -21.53076717546531], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014582950129286621
+Photon fraction on detector: 1.4582950129286621e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+505.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[14.870837373296506, 0.0, -19.04785549616726], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014540256834071588
+Photon fraction on detector: 1.4540256834071589e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+506.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.81775160458428, 0.0, -24.013678854763363], res=5.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014523762881007308
+Photon fraction on detector: 1.4523762881007309e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+507.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.344294488940394, 0.0, -21.53076717546531], res=50.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014539968182353063
+Photon fraction on detector: 1.4539968182353063e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+508.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[14.870837373296506, 0.0, -19.04785549616726], res=50.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014590765413826819
+Photon fraction on detector: 1.459076541382682e-06
+Photons on crystal 0
+Photons reflected 0
+        
+###################################
+509.txt
+---------------------------------
+c = Crystal(d=1.5414, D=2.4, r=38, loc=[5.619336625089284, 0, 29.469018577040025])
+d = Detector(dim=[1, 1], loc=[15.81775160458428, 0.0, -24.013678854763363], res=50.0)
+
+
+        
+Source(loc=[0, 0, 0], wavelength=1.5405973980020278, intensity=1000, number=1000000)
+        
+        
+---------------------------------
+Detector intensity: 0.0014539255975850103
+Photon fraction on detector: 1.4539255975850103e-06
+Photons on crystal 0
+Photons reflected 0
+        

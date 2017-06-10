@@ -8,7 +8,6 @@ from tools import Tools as tl
 from curves import Curves
 
 from PIL import Image
-from scipy import misc
 
 """
 All the positions and dimensions are in centimetres. Except for the wavelengths and lattice constants, that are in Angstroems.
