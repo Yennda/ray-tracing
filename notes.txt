@@ -1,99 +1,13 @@
-385-387
-Statisitcs
-Intensity on detector: 6.827153084877558
-Photon fraction on detector: 3.621831875266609e-06
+INSPECTION
+512
+Elapsed time: 65.3478410243988s
 --------------------
 Statisitcs
-Intensity on detector: 6.821576206067983
-Photon fraction on detector: 3.618873318868957e-06
---------------------
-Statisitcs
-Intensity on detector: 6.838893835517237
-Photon fraction on detector: 3.6280603901948207e-06
+Intensity on detector: 0.00860377493316147
+Photon fraction on detector: 8.60377493316147e-06
+Final elapsed time: 78s
 
 
-392
---------------------
-Statisitcs
-Intensity on detector: 27.82604762714993
-Photon fraction on detector: 3.6114273364243905e-06
-Final elapsed time: 1066s
-
-
-406
---------------------
-Statisitcs
-Intensity on detector: 27.878209361583448
-Photon fraction on detector: 3.618197191639643e-06
-Final elapsed time: 1029s
-
-Image diameter 172.6=>0.863mm
-Object diameter 0.5mm
-Magnification 1.726
-
-420
-Elapsed time: 1046.7792339324951s
---------------------
-Statisitcs
-Intensity on detector: 27.918533306790422
-Photon fraction on detector: 3.6234306692784456e-06
-
-421
---------------------
-Statisitcs
-Intensity on detector: 27.884604115119206
-Photon fraction on detector: 3.619027140184193e-06
-Final elapsed time: 2215s
-
-before inspection
-431-433
-Elapsed time: 19.37846875190735s
---------------------
-Statisitcs
-Intensity on detector: 0.0035096334726008524
-Photon fraction on detector: 3.5096334726008523e-06
-Elapsed time: 19.304401397705078s
---------------------
-Statisitcs
-Intensity on detector: 0.0035855533566950333
-Photon fraction on detector: 3.585553356695033e-06
-Elapsed time: 6.3977720737457275s
---------------------
-Statisitcs
-Intensity on detector: 0.003632394581073101
-Photon fraction on detector: 3.632394581073101e-06
-
-34-6
-source.direction and solid angle improved
-
-38 before simple cond. removed
-Elapsed time: 6.489814281463623s
---------------------
-Statisitcs
-Intensity on detector: 0.0037076086620994255
-Photon fraction on detector: 3.7076086620994253e-06
-
-39 after sc removed
-Elapsed time: 5.946399450302124s
---------------------
-
-
-Intensity on detector: 0.0035798517571958978
-Photon fraction on detector: 3.5798517571958976e-06
-Final elapsed time: 15s
-============================================================
-483-5
-Statisitcs
-
-Intensity on detector: 0.00875501414841922
-Photon fraction on detector: 8.75501414841922e-06
-Elapsed time: 55.09592580795288s
---------------------
-Statisitcs
-Intensity on detector: 0.008800785460238266
-Photon fraction on detector: 8.800785460238267e-06
-Elapsed time: 54.70531249046326s
---------------------
-Statisitcs
-Intensity on detector: 0.008621149883071562
-Photon fraction on detector: 8.621149883071562e-06
+Intensity on detector: 0.00855111220736401
+Photon fraction on detector: 8.551112207364009e-06
+Final elapsed time: 11s

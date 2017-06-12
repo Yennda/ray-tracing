@@ -8,19 +8,20 @@ class SetupTools:
     @staticmethod
     def display(setup: SetUp):
         c = setup.crystal
-        s = setup.source
+        sl = setup.source
         d = setup.detector
 
-        x = [p.loc[0] for p in c.points]
-        y = [p.loc[2] for p in c.points]
+        x = [p[0] for p in c.points]
+        y = [p[2] for p in c.points]
 
-        x.append(s.loc[0])
-        y.append(s.loc[2])
+        for s in sl:
+            x.append(s.loc[0])
+            y.append(s.loc[2])
 
-        for r in d.mesh:
-            for p in r:
-                x.append(p.loc[0])
-                y.append(p.loc[2])
+        # for r in d.mesh:
+        #     for p in r:
+        #         x.append(p.loc[0])
+        #         y.append(p.loc[2])
 
         fig = plt.figure(figsize=(6, 6))
         ax = fig.add_axes([0.2, 0.2, 0.7, 0.7])
@@ -28,33 +29,35 @@ class SetupTools:
         ax.grid(True)
         fig.savefig('display/graph_xz.png', dpi=200, bbox_inches='tight')
 
-        # x = [p.loc[0] for p in c.points]
-        # y = [p.loc[1] for p in c.points]
-        # x.append(s.loc[0])
-        # y.append(s.loc[1])
+        x = [p[0] for p in c.points]
+        y = [p[1] for p in c.points]
+        for s in sl:
+            x.append(s.loc[0])
+            y.append(s.loc[1])
         # for r in d.mesh:
         #     for p in r:
         #         x.append(p.loc[0])
         #         y.append(p.loc[1])
-        # fig = plt.figure(figsize=(6, 6))
-        # ax = fig.add_axes([0.2, 0.2, 0.7, 0.7])
-        # ax.scatter(x, y, linewidth=2, color='green')
-        # ax.grid(True)
-        # fig.savefig('display/graph_xy.png', dpi=200, bbox_inches='tight')
-        #
-        # x = [p.loc[1] for p in c.points]
-        # y = [p.loc[2] for p in c.points]
-        # x.append(s.loc[1])
-        # y.append(s.loc[2])
+        fig = plt.figure(figsize=(6, 6))
+        ax = fig.add_axes([0.2, 0.2, 0.7, 0.7])
+        ax.scatter(x, y, linewidth=2, color='green')
+        ax.grid(True)
+        fig.savefig('display/graph_xy.png', dpi=200, bbox_inches='tight')
+
+        x = [p[1] for p in c.points]
+        y = [p[2] for p in c.points]
+        for s in sl:
+            x.append(s.loc[1])
+            y.append(s.loc[2])
         # for r in d.mesh:
         #     for p in r:
         #         x.append(p.loc[1])
         #         y.append(p.loc[2])
-        # fig = plt.figure(figsize=(6, 6))
-        # ax = fig.add_axes([0.2, 0.2, 0.7, 0.7])
-        # ax.scatter(x, y, linewidth=2, color='green')
-        # ax.grid(True)
-        # fig.savefig('display/graph_yz.png', dpi=200, bbox_inches='tight')
+        fig = plt.figure(figsize=(6, 6))
+        ax = fig.add_axes([0.2, 0.2, 0.7, 0.7])
+        ax.scatter(x, y, linewidth=2, color='green')
+        ax.grid(True)
+        fig.savefig('display/graph_yz.png', dpi=200, bbox_inches='tight')
 
     @staticmethod
     def display_source(source: list):
@@ -104,6 +107,7 @@ class SetupTools:
     def adjustment(c: Crystal, z_dist, oq=0):
         curveSi = Curves()
         bragg = curveSi.bragg[c.rc]
+        print(tl.deg_from_rad(bragg))
 
         loc_cr = [z_dist * m.cos(bragg), 0, m.sin(bragg) * z_dist]
         q = tl.imaging_equation(f=c.r / 2, a=la.norm(loc_cr))
@@ -135,7 +139,7 @@ class SetupTools:
             for j in range(n):
                 if ((i - n / 2) ** 2 + (j - n / 2) ** 2) < ((n - 1) / 2) ** 2:
                     s.append(
-                        Source(loc=[i / n * dim[0], j / n * dim[1], 0], wavelength=0.377207, intensity=1000,
+                        Source(loc=[i / n * dim[0], j / n * dim[1], 0], wavelength=0.377207, photon_count=1000,
                                number=200))
         print(len(s))
         return s
@@ -146,5 +150,5 @@ class SetupTools:
         for i in range(n):
             for j in range(n):
                 s.append(
-                    Source(loc=[i / n * dim[0], j / n * dim[1], 0], wavelength=0.377207, intensity=1000, number=200))
+                    Source(loc=[i / n * dim[0], j / n * dim[1], 0], wavelength=0.377207, photon_coun=1000, number=200))
         return s

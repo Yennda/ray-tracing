@@ -3,12 +3,12 @@ from tools import Tools as tl
 
 class Curves:
     def __init__(self):
-        self.files = ['reflectivity.csv', 'reflectivity_cu.csv']
+        self.files = [['reflectivity.csv', 79.1920], ['reflectivity_cu.csv', 88.17920]]
         self.data = list()
         self.bragg = list()
         self.bragg_lim = list()
         for f in self.files:
-            table = [[tl.rad_from_deg(l[0] / 3600 + 79.1920), l[1]] for l in self.list_from_csv(f)]
+            table = [[tl.rad_from_deg(l[0] / 3600 + f[1]), l[1]] for l in self.list_from_csv(f[0])]
             self.data.append(table)
             bragg = table[0]
 

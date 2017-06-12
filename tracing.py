@@ -19,26 +19,24 @@ class Detector:
         self.dim = dim
         self.loc = loc
         self.rot = 3 * [0]
+        self.res = res / 1e4  # micrometers to centimeters
+
         self.ux = [1, 0, 0]
         self.uy = [0, 1, 0]
+        self.n = [0, 0, 1]
 
-        self.res = res / 1e4  # micrometers to centimeters
         self.nx = int(self.dim[0] / self.res)
         self.ny = int(self.dim[1] / self.res)
 
         self.image = np.ndarray([self.nx, self.ny])
         self.image.fill(0)
-        self.n = [0, 0, 1]
+
         self.detected_intensity = list()
         self.detected_position = list()
 
     @property
     def integral(self):
-        suma = 0
-        for i in range(self.nx):
-            for j in range(self.ny):
-                suma += self.image[i, j]
-        return suma
+        return self.image.sum()
 
     def rotate(self, angles, u='rad'):
         if u == 'r':
@@ -53,15 +51,16 @@ class Detector:
 
 
 class Source:
-    def __init__(self, loc: list, wavelength: float, intensity: int, number):
+    def __init__(self, loc: list, wavelength: float, photon_count: int, number):
         self.loc = loc
         self.wl = wavelength
-        self.intensity = intensity
+        self.photon_count = photon_count
         if type(number) is list:
             self.number = number[0] * number[1]
             self.number_list = number
         else:
             self.number = number
+
         # self.rays = list()
         self.intensity_per_photon = None
         self.photons_total = 0
@@ -72,7 +71,7 @@ class Source:
         self.solid_angle = float()
 
     def reset(self):
-        self.__init__(self.loc, self.wl, self.intensity, self.number)
+        self.__init__(self.loc, self.wl, self.photon_count, self.number)
 
 
 class Crystal:
@@ -81,6 +80,7 @@ class Crystal:
         self.r = r
         self.D = D
         self.rc = rc
+
         self.centre = la.minus(loc, [0, 0, (r ** 2 - (D / 2) ** 2) ** 0.5])
         self.loc = loc
         self.points = list()
@@ -98,6 +98,8 @@ class SetUp:
         self.crystal = crystal
         self.detector = detector
         self.curveSi = Curves()
+
+        self.t = True
 
         for s in self.source:
             s.direction = la.normalize(la.minus(crystal.loc, s.loc))
@@ -119,7 +121,7 @@ class SetUp:
                 )
                 done = self.reflection_crystal(la.normalize(s), source)
 
-        source.intensity_per_photon = source.intensity * (source.solid_angle / (4 * m.pi)) / source.photons_total
+        source.intensity_per_photon = source.photon_count * (source.solid_angle / (4 * m.pi)) / source.photons_total
         # print('ipp {}'.format(source.intensity_per_photon))
 
     def reflection_crystal(self, s, source):
@@ -149,7 +151,12 @@ class SetUp:
             ray = la.x(ray, 1 / la.dot(ray, n))
             o = [+ray[i] + 2 * (n[i] - ray[i]) for i in range(3)]
             r = np.array(la.minus(self.detector.loc, loc))
-
+            # if self.t:
+            #     print(la.norm(n))
+            #     tl.vec_show([ray, n, o])
+            #     print(la.cos(ray,n))
+            #     print(la.cos(o,n))
+            #     self.t = False
             coeff = np.linalg.solve(np.array([la.normalize(o),
                                               self.detector.ux,
                                               self.detector.uy]).T, r)
@@ -216,7 +223,7 @@ class SetUp:
                     continue
                 self.reflection_crystal(la.normalize(s), source)
 
-        source.intensity_per_photon = source.intensity * source.solid_angle * source.number / (
+        source.intensity_per_photon = source.photon_count * source.solid_angle * source.number / (
             4 * m.pi * source.photons_total * source.number)
 
     def mesh_to_image(self, source: Source):
@@ -261,7 +268,7 @@ Source(loc={}, wavelength={}, intensity={}, number={})
         '''.format(
             self.source[0].loc,
             self.source[0].wl,
-            self.source[0].intensity,
+            self.source[0].photon_count,
             self.source[0].number
         )
         text_info += '''
@@ -272,7 +279,7 @@ Photons on crystal {}
 Photons reflected {}
         '''.format(
             self.detector.integral,
-            self.detector.integral / sum([s.intensity for s in self.source]),
+            self.detector.integral / sum([s.photon_count for s in self.source]),
             sum([s.photons_reached for s in self.source]),
             self.crystal.count_reflected
         )
@@ -289,7 +296,7 @@ Photons reflected {}
         print('--------------------\nStatisitcs')
         integral = self.detector.integral
         print('Intensity on detector: {}'.format(integral))
-        print('Photon fraction on detector: {}'.format(integral / sum([s.intensity for s in self.source])))
+        print('Photon fraction on detector: {}'.format(integral / sum([s.photon_count for s in self.source])))
 
     def work(self):
         t = time.time()

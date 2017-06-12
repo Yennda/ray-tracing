@@ -1,7 +1,9 @@
 from algebra import la
 import numpy.linalg as l
+import numpy as np
 import math as m
 from scipy import constants as c
+import matplotlib.pyplot as plt
 
 
 class Tools:
@@ -99,3 +101,20 @@ class Tools:
             sum_first += x[i][0] * x[i + 1][1]
             sum_second += x[i + 1][0] * x[i][1]
         return 0.5 * (sum_first + x[-1][0] * x[0][1] - sum_second - x[0][0] * x[-1][1])
+
+    @staticmethod
+    def vec_show(vectors: list):
+        x = np.arange(0,1,0.01)
+        fig, axes = plt.subplots(1, 3, figsize=(12, 4))
+        # axes[0].set_title(vectors)
+        axes[0].set_xlabel('x')
+        axes[0].set_ylabel('y')
+        axes[1].set_xlabel('z')
+        axes[1].set_ylabel('x')
+        axes[2].set_xlabel('z')
+        axes[2].set_ylabel('y')
+        for vec in vectors:
+            axes[0].plot(vec[0]*x,vec[1]*x)
+            axes[1].plot(vec[2] * x, vec[0] * x)
+            axes[2].plot(vec[2] * x, vec[1] * x)
+        fig.savefig('display/vec_show.png', dpi=200, bbox_inches='tight')
